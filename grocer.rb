@@ -50,7 +50,7 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   coupon_counter = 0
   while coupon_counter < coupons.length do
-    cart_item = find_item_by_name_in_collection(coupons[coupon_counter][:item], )
+    cart_item = find_item_by_name_in_collection(coupons[coupon_counter][:item], cart)
     coupon_counter += 1
   end
 end
