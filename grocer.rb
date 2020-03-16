@@ -48,29 +48,67 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-  coupon_counter = 0
-  while coupon_counter < coupons.length do
-    cart_item = find_item_by_name_in_collection(coupons[coupon_counter][:item], cart)
-    couponed_item_name = "${coupons[coupon_counter][:item]} W/COUPON"
+  # coupon_counter = 0
+  # while coupon_counter < coupons.length do
+  #   cart_item = find_item_by_name_in_collection(coupons[coupon_counter][:item], cart)
+  #   couponed_item_name = "${coupons[coupon_counter][:item]} W/COUPON"
+  #   cart_item_with_coupon = find_item_by_name_in_collection(couponed_item_name, cart)
+  #   if cart_item && cart_item[:count] >= coupons[coupon_counter][:num]
+  #     if cart_item_with_coupon
+  #       cart_item_with_coupon[:count] += coupons[coupon_counter][:num]
+  #       cart_item[:count] -= coupons[coupon_counter][:num]
+  #     else
+  #       cart_item_with_coupon = {
+  #         :item => couponed_item_name,
+  #         :price => coupons[coupon_counter][:cost] / coupons[coupon_counter][:num],
+  #         :count => coupons[coupon_counter][:num],
+  #         :clearance => cart_item[:clearance]
+  #       }
+  #       cart << cart_item_with_coupon
+  #       cart_item[:count] -= coupons[coupon_counter][:num]
+  #     end
+  #   end
+  #   coupon_counter += 1
+  # end
+  # cart
+
+  counter = 0
+   while counter < coupons.length
+    cart_item = find_item_by_name_in_collection(coupons[counter][:item], cart)
+    couponed_item_name = "#{coupons[counter][:item]} W/COUPON"
     cart_item_with_coupon = find_item_by_name_in_collection(couponed_item_name, cart)
-    if cart_item && cart_item[:count] >= coupons[coupon_counter][:num]
+
+    # if the found cart item exists and has enough of that item
+    if cart_item && cart_item[:count] >= coupons[counter][:num]
+      
+      # if this item has already had a coupon applied 
       if cart_item_with_coupon
-        cart_item_with_coupon[:count] += coupons[coupon_counter][:num]
-        cart_item[:count] -= coupons[coupon_counter][:num]
-      else
+        # add the number of couponable items to the couponed item that already exists 
+        cart_item_with_coupon[:count] += coupons[counter][:num]
+        
+        # then subtract that same number from the non-couponed item in the cart (the leftover extra items)
+        cart_item[:count] -= coupons[counter][:num]
+        
+      else  
+        # create a new cart item with coupon hash
         cart_item_with_coupon = {
-          :item => couponed_item_name,
-          :price => coupons[coupon_counter][:cost] / coupons[coupon_counter][:num],
-          :count => coupons[coupon_counter][:num],
+          
+          :item => couponed_item_name, 
+          :price => coupons[counter][:cost] / coupons[counter][:num], 
+          :count => coupons[counter][:num], 
           :clearance => cart_item[:clearance]
         }
+        
         cart << cart_item_with_coupon
-        cart_item[:count] -= coupons[coupon_counter][:num]
+        
+        # subtract the number of couponed items from the original hash
+        cart_item[:count] -= coupons[counter][:num]
       end
     end
-    coupon_counter += 1
-  end
-  cart
+    counter += 1
+   end
+   cart
+  
 end
 
 def apply_clearance(cart)
