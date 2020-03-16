@@ -5,6 +5,7 @@ def find_item_by_name_in_collection(name, collection)
   # Implement me first!
   #
   # Consult README for inputs and outputs
+  # Find a specific item using its name inside of the collection array
   item_counter_index = 0
   while item_counter_index < collection.length do
     collection[item_counter_index]
