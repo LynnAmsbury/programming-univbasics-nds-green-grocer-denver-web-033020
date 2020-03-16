@@ -5,8 +5,8 @@ def find_item_by_name_in_collection(name, collection)
   # Implement me first!
   #
   # Consult README for inputs and outputs
-  item = 0
-  while item < collection.length do
+  item_counter = 0
+  while item_counter < collection.length do
     
   end
 end
