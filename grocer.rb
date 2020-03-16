@@ -1,3 +1,6 @@
+require 'pry'
+require 'pp'
+
 def find_item_by_name_in_collection(name, collection)
   # Implement me first!
   #
