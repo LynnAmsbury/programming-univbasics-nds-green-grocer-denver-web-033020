@@ -8,7 +8,9 @@ def find_item_by_name_in_collection(name, collection)
   # Find a specific item using its name inside of the collection array
   item_counter_index = 0
   while item_counter_index < collection.length do
-    collection[item_counter_index]
+    if collection[item_counter_index][:item]
+      
+    end
     item_counter_index += 1
   end
 end
