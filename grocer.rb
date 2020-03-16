@@ -5,15 +5,15 @@ def find_item_by_name_in_collection(name, collection)
   # Implement me first!
   #
   # Consult README for inputs and outputs
-  i = 0 
+  i = 0
   new_collection = {}
-  while i < collection.length do 
+  while i < collection.length do
     if collection[i][:item] == name
       return collection[i]
-    else 
+    else
       nil
     end
-    i += 1 
+    i += 1
   end 
 end
 
