@@ -9,7 +9,7 @@ def find_item_by_name_in_collection(name, collection)
   item_counter_index = 0
   while item_counter_index < collection.length do
     if collection[item_counter_index][:item]
-      
+
     end
     item_counter_index += 1
   end
