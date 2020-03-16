@@ -77,7 +77,7 @@ def apply_coupons(cart, coupons)
 
         cart << cart_item_with_coupon
 
-        # Subtracts the number of couponed items from the original hash
+        # Subtract the number of couponed items from the original hash
         cart_item[:count] -= coupons[counter][:num]
       end
     end
