@@ -8,6 +8,7 @@ def find_item_by_name_in_collection(name, collection)
   item_counter_index = 0
   while item_counter_index < collection.length do
     collection[item_counter_index]
+    item_counter_index += 1
   end
 end
 
