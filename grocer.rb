@@ -30,6 +30,7 @@ def consolidate_cart(cart)
 end
 
 # Will return AoH [{:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 2}]
+# Item: {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 2}
 
 def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
