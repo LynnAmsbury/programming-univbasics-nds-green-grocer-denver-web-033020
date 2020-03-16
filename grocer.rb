@@ -80,27 +80,27 @@ def apply_coupons(cart, coupons)
 
     # if the found cart item exists and has enough of that item
     if cart_item && cart_item[:count] >= coupons[counter][:num]
-      
-      # if this item has already had a coupon applied 
+
+      # if this item has already had a coupon applied
       if cart_item_with_coupon
-        # add the number of couponable items to the couponed item that already exists 
+        # add the number of couponable items to the couponed item that already exists
         cart_item_with_coupon[:count] += coupons[counter][:num]
-        
+
         # then subtract that same number from the non-couponed item in the cart (the leftover extra items)
         cart_item[:count] -= coupons[counter][:num]
-        
-      else  
+
+      else
         # create a new cart item with coupon hash
         cart_item_with_coupon = {
-          
-          :item => couponed_item_name, 
-          :price => coupons[counter][:cost] / coupons[counter][:num], 
-          :count => coupons[counter][:num], 
+
+          :item => couponed_item_name,
+          :price => coupons[counter][:cost] / coupons[counter][:num],
+          :count => coupons[counter][:num],
           :clearance => cart_item[:clearance]
         }
-        
+
         cart << cart_item_with_coupon
-        
+
         # subtract the number of couponed items from the original hash
         cart_item[:count] -= coupons[counter][:num]
       end
@@ -108,7 +108,7 @@ def apply_coupons(cart, coupons)
     counter += 1
    end
    cart
-  
+
 end
 
 def apply_clearance(cart)
