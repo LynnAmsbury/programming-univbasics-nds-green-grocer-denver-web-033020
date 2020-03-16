@@ -9,7 +9,7 @@ def find_item_by_name_in_collection(name, collection)
   item_counter_index = 0
   while item_counter_index < collection.length do
     if collection[item_counter_index][:item] == name
-      return collection[item_counter_index]
+      return collection[item_counter_index] # Will return the elemenet and EXIT THE LOOP
     end
     item_counter_index += 1
   end
